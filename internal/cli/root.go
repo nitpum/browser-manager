@@ -159,15 +159,15 @@ var stopCmd = &cobra.Command{
 }
 
 func init() {
-	serverCmd.Flags().Int("port", 8080, "server listen port")
+	serverCmd.Flags().Int("port", 9292, "server listen port")
 	serverCmd.Flags().String("browser", "google-chrome", "path to browser executable")
 	serverCmd.Flags().String("profile", "", "browser profile/user-data-dir path")
 	serverCmd.Flags().Bool("no-headless", false, "run browser in headed mode (with GUI)")
 
-	statusCmd.Flags().String("server-url", "http://localhost:8080", "server URL")
-	wsURLCmd.Flags().String("server-url", "http://localhost:8080", "server URL")
-	restartCmd.Flags().String("server-url", "http://localhost:8080", "server URL")
-	stopCmd.Flags().String("server-url", "http://localhost:8080", "server URL")
+	statusCmd.Flags().String("server-url", "http://localhost:9292", "server URL")
+	wsURLCmd.Flags().String("server-url", "http://localhost:9292", "server URL")
+	restartCmd.Flags().String("server-url", "http://localhost:9292", "server URL")
+	stopCmd.Flags().String("server-url", "http://localhost:9292", "server URL")
 
 	rootCmd.AddCommand(serverCmd)
 	rootCmd.AddCommand(statusCmd)

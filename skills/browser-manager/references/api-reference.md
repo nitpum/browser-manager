@@ -1,6 +1,6 @@
 # Browser Manager API Reference
 
-Base URL: `http://localhost:8080` (configurable via `--port` flag)
+Base URL: `http://localhost:9292` (configurable via `--port` flag)
 
 ## Authentication
 
@@ -14,7 +14,7 @@ Returns the current browser status.
 
 **Request:**
 ```bash
-curl http://localhost:8080/api/status
+curl http://localhost:9292/api/status
 ```
 
 **Response (200 OK) — Browser running:**
@@ -60,7 +60,7 @@ Returns the CDP WebSocket debug URL for direct browser connection.
 
 **Request:**
 ```bash
-curl http://localhost:8080/api/ws-url
+curl http://localhost:9292/api/ws-url
 ```
 
 **Response (200 OK):**
@@ -88,7 +88,7 @@ Restarts the browser instance. Kills the existing process and launches a new one
 
 **Request:**
 ```bash
-curl -X POST http://localhost:8080/api/restart
+curl -X POST http://localhost:9292/api/restart
 ```
 
 **Response (200 OK):**
@@ -123,7 +123,7 @@ Stops the browser process and shuts down the server.
 
 **Request:**
 ```bash
-curl -X POST http://localhost:8080/api/stop
+curl -X POST http://localhost:9292/api/stop
 ```
 
 **Response (200 OK):**
@@ -166,4 +166,4 @@ Each API endpoint has a corresponding CLI command:
 | `POST /api/restart` | `browser-manager restart` |
 | `POST /api/stop` | `browser-manager stop` |
 
-CLI commands accept a `--server-url` flag (default: `http://localhost:8080`) to specify the server address.
+CLI commands accept a `--server-url` flag (default: `http://localhost:9292`) to specify the server address.

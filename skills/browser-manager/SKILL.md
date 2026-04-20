@@ -26,11 +26,11 @@ Do NOT use this skill when:
 The browser-manager server must be running. Start it with:
 
 ```bash
-browser-manager server --port 8080 --browser /usr/bin/google-chrome --profile /path/to/profile
+browser-manager server --port 9292 --browser /usr/bin/google-chrome --profile /path/to/profile
 ```
 
 Flags:
-- `--port`: Server listen port (default: 8080)
+- `--port`: Server listen port (default: 9292)
 - `--browser`: Path to browser executable (default: "google-chrome")
 - `--profile`: Browser profile/user-data-dir path (optional)
 
@@ -41,7 +41,7 @@ Flags:
 Before doing anything, verify the server is running and the browser is available:
 
 ```bash
-curl http://localhost:8080/api/status
+curl http://localhost:9292/api/status
 ```
 
 Expected response:
@@ -61,7 +61,7 @@ If `"running": false`, the browser needs to be started first.
 ### Step 2: Get the CDP WebSocket URL
 
 ```bash
-curl http://localhost:8080/api/ws-url
+curl http://localhost:9292/api/ws-url
 ```
 
 Response:
@@ -118,27 +118,27 @@ Send JSON messages like:
 | POST | `/api/restart` | Restart browser instance |
 | POST | `/api/stop` | Stop browser and server |
 
-All endpoints are at the server URL (default: `http://localhost:8080`).
+All endpoints are at the server URL (default: `http://localhost:9292`).
 
 ## Common Patterns
 
 ### Restart an unresponsive browser
 
 ```bash
-curl -X POST http://localhost:8080/api/restart
+curl -X POST http://localhost:9292/api/restart
 ```
 
 ### Stop everything
 
 ```bash
-curl -X POST http://localhost:8080/api/stop
+curl -X POST http://localhost:9292/api/stop
 ```
 
 ### Get browser debug port for direct HTTP access
 
 ```bash
 # Get status to find the debug port
-curl -s http://localhost:8080/api/status | jq '.debug_port'
+curl -s http://localhost:9292/api/status | jq '.debug_port'
 # Then use Chrome's DevTools HTTP endpoints
 curl http://localhost:<debug_port>/json/list
 ```
